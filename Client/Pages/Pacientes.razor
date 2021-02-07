@@ -1,0 +1,49 @@
+﻿@page "/pacientes"
+@using  NutrizoneApp.Shared.Entidades
+
+<h1>Alta Pacientes</h1>
+<EditForm Model="Alta" OnValidSubmit="Crear">
+    <DataAnnotationsValidator></DataAnnotationsValidator>
+    <div class="form-group">
+        <label>Nombre Completo</label>
+        <div>
+            <InputText class="form-control" placeholder="Nombre(s),ApePat,ApeMat" @bind-Value="@Alta.Nombre"></InputText>
+            <ValidationMessage For="@(() => Alta.Nombre)" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Peso</label>
+        <InputText Id="Peso" class="form-control" placeholder="Digite Peso" @bind-Value="@Alta.Peso"></InputText>
+        <ValidationMessage For="@(() => Alta.Peso)" />
+    </div>
+    <div class="form-group">
+        <label>Talla</label>
+        <InputText class="form-control" placeholder="Digite Talla" @bind-Value="@Alta.Talla"></InputText>
+        <ValidationMessage For="@(() => Alta.Talla)" />
+    </div>
+    <div class="form-group">
+        <label>Edad</label>
+        <InputText class="form-control" placeholder="Dgite Edad" @bind-Value="@Alta.Edad"></InputText>
+        <ValidationMessage For="@(() => Alta.Edad)" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</EditForm>
+
+
+@code {
+    private AltaPaciente Alta = new AltaPaciente();
+
+    private void Crear()
+    {
+        Console.WriteLine("Ejecutando metodo a Crear");
+        Console.WriteLine($"Nombre del Paciente: {Alta.Nombre}");
+        Console.WriteLine($"El Peso del Paciente: {Alta.Peso}");
+        Console.WriteLine($"La Talla del Paciente: {Alta.Talla}");
+        Console.WriteLine($"La Edad del Paciente: {Alta.Edad}");
+    }
+
+}
+
+
+
